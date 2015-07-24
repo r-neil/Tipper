@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tippy - The Tip Calculator</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type='text/javascript' src='scripts/jquery.js'></script>
+        <script type='text/javascript' src='scripts/javascript.js'></script>
+        <link href="css/main.css" rel="stylesheet"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+<body>	
+<!-- Guest Count -->
+<section id="guest-count">
+	number in party:
+	<br>
+	<button type="button" name = "subtract"> - </button>
+	<input type="text" name="party" value = "2" readonly>
+	<button type="button" name = "add"> + </button>
+
+</section>
+
+<!-- Tip Percentage -->
+<section id="tip_percent">
+Tip Amount:
+<br>	
+	<input type="radio" name="tip" value=".15">15%<br>
+	<input type="radio" name="tip" value=".18" checked>18%<br>
+	<input type="radio" name="tip" value="">Other: <input type="text" name="other"> <br>
+</section>
+
+<!-- Pre-tax amount -->
+<section id="before_tax">
+Check Total before Tax
+<br>
+<input type="text" name="preTax" value = "$0.00">
+</section>
+
+<!-- Total Amount -->
+<section id="after_tax">
+Check Total after Tax
+<br>
+<input type="text" name="postTax" value = "$0.00">
+</section>
+
+<!-- Calculate -->
+<section id="calculate">
+	<button type="button" name="calculate">Calculate</button>
+</section>
+
+<p></p>
+
+
+</body>
+</html>

@@ -1,16 +1,16 @@
 $(document).ready(function(){
 
     $("[name=add]").click(function(){
-    	console.log("add!");
-    	var $partyInt = parseInt($("[name=party]").val(),10);
-    	$("[name=party]").val($partyInt + 1);
+    	var $partyInt = parseInt($("[name=party]").val(),10)+1;
+    	$("[name=party]").val($partyInt);
+        ifDisableSubButton(($partyInt));
     });
 
     $("[name=subtract]").click(function(){
-    	console.log("subtract!");
     	var $partyInt = parseInt($("[name=party]").val(),10);
         	if($partyInt >1){
         		$("[name=party]").val($partyInt - 1);
+                ifDisableSubButton(($partyInt - 1));
         	}
     });
     //on focus of Other textbox, Other Radio checked=true
@@ -18,16 +18,12 @@ $(document).ready(function(){
         $("[name=tip][value='']").prop("checked",true);
     });
 
-     $("[name=otherTextbox]").blur(function(){
-        $("[name=otherTextbox]").val($("[name=otherTextbox]").val() + "%");
-     });
-
-    
+    //Calculate Button
     $("[name=calculate]").click(function(){
-        $("body").append(tipAmmount());
+        //$("body").append(calculateBill());
+        $('p').html(calculateBill());
     });
 
-   
 });
 
 function calculateBill(){
@@ -35,17 +31,35 @@ function calculateBill(){
     var $preTax = parseInt($("[name=preTax]").val(),10);
     var $postTax = parseInt($("[name=postTax]").val(),10);
     var $tax = $postTax - $preTax;
+    var $tip = tipAmmount();
 
+    var $singlePreTax = $preTax/$party;
+    var $singleTax = ($postTax - $preTax)/$party;
+    var $singleTip = ($preTax * $tip)/ $party;
+    var $singleTotal = ($preTax * (1+$tip))/$party + $tax/$party;
 
-    return ($preTax * 1.2)/$party + $tax/$party;
+    return "<p>Divided Check Total: " + $singlePreTax +
+            "<br> Divided Tax Total: " + $singleTax +
+            "<br> Divided Tip Total: " + $singleTip +
+            "<br> Diviced Total: " + $singleTotal + "</p>"
 }
 
 function tipAmmount(){
-    var $tip = $("[name=tip]:checked").val();
-    if($tip == ""){
-        $tip = $("[name=other]").val();
+    var $tip = parseFloat($("[name=tip]:checked").val());
+    if(isNaN($tip)){
+        $tip = parseInt($("[name=otherTextbox]").val(),10)/100;
     }
-
-    console.log("tip selected " + $tip);
     return $tip;
 }
+
+function ifDisableSubButton(party){
+    if(party ==1){
+        $("[name=subtract]").prop("disabled",true); 
+         // $("[name=subtract]").html(" "); 
+    }else{
+        $("[name=subtract]").prop("disabled",false);
+        // $("[name=subtract]").html("-");  
+    }
+
+}
+

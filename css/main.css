@@ -1,1 +1,63 @@
-/*Coming soon!*/
+@import url(font/SanFranciscoFont/usesf.css);
+
+
+h1, button, input{
+	font-family: 'San Francisco Text', sans-serif;
+	font-weight: 300;
+}
+h1{
+	margin:0;
+}
+
+/* Guest Count*/
+section#guest-count
+{
+	height: 150px;
+	width: 350px;
+	margin-right: auto;
+	margin-left:auto;
+}
+
+#guest-wrapper{
+	margin-right: auto;
+	margin-left:auto;
+	width: 210px;
+}
+
+.guest-button{
+	padding: 10px 20px 10px 20px;
+	font-size: 24px;
+	border-radius: 10px;
+	background-color: #ffffff;
+	border: solid #000000 1px;
+	float: left;
+	width:55px;
+}
+
+.guest-button:active{
+	background: #D3D3D3;
+}
+
+.guest-button:disabled{
+	border-color: #ffffff;
+	background-color: #ffffff;
+	color:#ffffff;
+}
+
+#guest-background{
+	width:100px;
+	height: 50px;
+	text-align: center;
+	float: left;
+}
+
+#guest-tb{
+	width:75px;
+	margin-right:auto;
+	margin-left:auto;
+	text-align:center;
+	font-size: 24px;
+	position: relative;
+	top:15%;
+
+}

@@ -6,40 +6,49 @@
         <script type='text/javascript' src='scripts/jquery.js'></script>
         <script type='text/javascript' src='scripts/javascript.js'></script>
         <link href="css/main.css" rel="stylesheet"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	</head>
 <body>	
 <!-- Guest Count -->
 <section id="guest-count">
-	number in party:
+	<h1>number in party:</h1>
 	<br>
-	<button type="button" name = "subtract"> - </button>
-	<input type="text" name="party" value = "2" readonly>
-	<button type="button" name = "add"> + </button>
-
+	<div id="guest-wrapper">
+		<button type="button" name = "subtract" class="guest-button"> - </button>
+		<div id="guest-background">
+			<input type="text" name="party" readonly value = "2" class="textbox unselectable guest-tb">
+		</div>
+		<button type="button" name = "add" class="guest-button"> + </button>
+	</div>
 </section>
 
 <!-- Tip Percentage -->
 <section id="tip_percent">
-Tip Amount:
+<h1>tip amount:</h1>
 <br>	
-	<input type="radio" name="tip" value=".15">15%<br>
-	<input type="radio" name="tip" value=".18" checked>18%<br>
+	<input type="radio" name="tip" value=".15" checked>15%<br>
+	<input type="radio" name="tip" value=".18">18%<br>
 	<input type="radio" name="tip" value="">Other: <input type="text" name="otherTextbox" value="" id="other"> <br>
 </section>
 
 <!-- Pre-tax amount -->
 <section id="before_tax">
-Check Total before Tax
+<h1>check total (before tax):</h1>
 <br>
-<input type="text" name="preTax" value = "$0.00">
+	<div class="dollar-sign-wrapper">
+		<div class="dollar-sign">$</div> 
+		<input type="tel" name="preTax" value = "45.00" class="textbox dollar-tb" onclick="this.select();">
+	</div>
 </section>
 
 <!-- Total Amount -->
 <section id="after_tax">
-Check Total after Tax
+<h1>check total (after tax):<h1>
 <br>
-<input type="text" name="postTax" value = "$0.00">
+<div class="dollar-sign-wrapper">
+		<div class="dollar-sign">$</div> 
+		<input type="tel" name="postTax" value = "50.00" class="textbox dollar-tb" onclick="this.select();">
+	</div>
 </section>
 
 <!-- Calculate -->

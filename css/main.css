@@ -73,6 +73,15 @@ section#guest-count, section#tip_percent, section#before_tax, section#after_tax,
 }
 
 /*Tip Percentage*/
+
+[type='radio'] {
+display: none; 
+}
+.tip-wrapper{
+	display:block;
+}
+
+
 /*Check Total*/
 .dollar-sign-wrapper{
 	width:100px;
@@ -81,7 +90,7 @@ section#guest-count, section#tip_percent, section#before_tax, section#after_tax,
 	margin-left: auto;
 }
 .dollar-tb-select{
-	border: solid blue 2px;
+	border: solid #37FDFC 2px;
 }
 .dollar-sign{
 	float:left;

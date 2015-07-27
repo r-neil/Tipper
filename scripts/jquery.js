@@ -1,11 +1,12 @@
 $(document).ready(function(){
-
+    //Party Add Button
     $("[name=add]").click(function(){
     	var $partyInt = parseInt($("[name=party]").val(),10)+1;
     	$("[name=party]").val($partyInt);
         ifDisableSubButton(($partyInt));
     });
 
+    //Party Subtract Button
     $("[name=subtract]").click(function(){
     	var $partyInt = parseInt($("[name=party]").val(),10);
         	if($partyInt >1){
@@ -13,13 +14,25 @@ $(document).ready(function(){
                 ifDisableSubButton(($partyInt - 1));
         	}
     });
-    //on focus of Other textbox, Other Radio checked=true
+
+    //Tip Ammount: on focus of "other" text box, other Radio checked=true
      $("[name=otherTextbox]").focus(function(){
         $("[name=tip][value='']").prop("checked",true);
     });
 
+     //Dollar Amount Textbox, format value on keyup.
      $(".dollar-tb").keyup(function(){
         $(this).val(formatDollar($(this).val()));
+     });
+
+     //Dollar Amount Textbox highlight when focus
+     $(".dollar-tb").focus(function(){
+        $(this).parent('div').addClass('dollar-tb-select');
+     });
+
+     //Dollar Amount Textbox remove highligh on blur
+    $(".dollar-tb").blur(function(){
+        $(this).parent('div').removeClass('dollar-tb-select');
      });
 
     //Calculate Button

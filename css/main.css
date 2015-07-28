@@ -80,13 +80,19 @@ section#guest-count, section#tip_percent, section#before_tax, section#after_tax,
 }
 
 .tip-wrapper{
-	
+	display:inline;
 }
 .tip-lbl{
+	display:inline-block;
 	background-color: green;
 	cursor:pointer;
-	width: 50px;
+	padding: 15px;
+	margin:-2px;
+	border: solid blue 2px;
+}
 
+input[type="radio"]:checked ~ * { 
+    background-color: #bbb;
 }
 
 /*Check Total*/

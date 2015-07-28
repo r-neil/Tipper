@@ -39,6 +39,7 @@ section#guest-count, section#tip_percent, section#before_tax, section#after_tax,
 	border: solid #000000 1px;
 	float: left;
 	width:55px;
+	cursor:pointer;
 }
 
 .guest-button:active{
@@ -75,12 +76,18 @@ section#guest-count, section#tip_percent, section#before_tax, section#after_tax,
 /*Tip Percentage*/
 
 [type='radio'] {
-display: none; 
-}
-.tip-wrapper{
-	display:block;
+	display: none;
 }
 
+.tip-wrapper{
+	
+}
+.tip-lbl{
+	background-color: green;
+	cursor:pointer;
+	width: 50px;
+
+}
 
 /*Check Total*/
 .dollar-sign-wrapper{

@@ -20,6 +20,12 @@ $(document).ready(function(){
         $("[name=tip][value='']").prop("checked",true);
     });
 
+     //Tip Selection Button Color
+     $("input[name='tip']").change(function(){
+        $("label[name='tip-amount-lbl']").removeClass('tip-lbl-select');
+        if($("input[name='tip']").is(':checked')) { $(this).parent("label").addClass('tip-lbl-select'); }
+    });
+
      //Dollar Amount Textbox, format value on keyup.
      $(".dollar-tb").keyup(function(){
         $(this).val(formatDollar($(this).val()));

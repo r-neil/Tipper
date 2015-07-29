@@ -52,6 +52,10 @@ section#guest-count, section#tip_percent, section#before_tax, section#after_tax,
 	color:#ffffff;
 }
 
+.guest-button:hover{
+	background-color: pink;
+}
+
 #guest-background{
 	width:100px;
 	height: 50px;
@@ -90,9 +94,12 @@ section#guest-count, section#tip_percent, section#before_tax, section#after_tax,
 	margin:-2px;
 	border: solid blue 2px;
 }
+.tip-lbl-select{
+	background-color: #bbb;
+}
 
-input[type="radio"]:checked ~ * { 
-    background-color: #bbb;
+.tip-lbl:hover{
+	background-color:pink;
 }
 
 /*Check Total*/
@@ -107,7 +114,7 @@ input[type="radio"]:checked ~ * {
 }
 .dollar-sign{
 	float:left;
-	font-size: 20px;
+	font-size: 20px;	
 }
 .dollar-tb{
 	float:left;

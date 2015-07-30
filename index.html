@@ -14,11 +14,11 @@
 	<h1>number in party:</h1>
 	<br>
 	<div id="guest-wrapper">
-		<button type="button" name = "subtract" class="guest-button"> - </button>
+		<button type="button" name = "subtract" class="btn guest-button"> - </button>
 		<div id="guest-background">
 			<input type="text" name="party" readonly value = "2" class="textbox unselectable guest-tb">
 		</div>
-		<button type="button" name = "add" class="guest-button"> + </button>
+		<button type="button" name = "add" class="btn guest-button"> + </button>
 	</div>
 </section>
 
@@ -27,9 +27,9 @@
 <h1>tip amount:</h1>
 <br>	
 	<div class="tip-wrapper">
-		<label class="tip-lbl" name="tip-amount-lbl"><input type="radio" name="tip" value=".15" >15%</label>
-		<label class="tip-lbl" name="tip-amount-lbl"><input type="radio" name="tip" value=".18" >18%</label>
-		<label class="tip-lbl" name="tip-amount-lbl"><input type="radio" name="tip" value="" >Other</label>
+		<label class="btn tip-btn" name="tip-amount-btn"><input type="radio" name="tip" value=".15" >15%</label>
+		<label class="btn tip-btn" name="tip-amount-btn"><input type="radio" name="tip" value=".18" >18%</label>
+		<label class="btn tip-btn" name="tip-amount-btn"><input type="radio" name="tip" value="" >Other</label>
 		<!-- <input type="text" name="otherTextbox" value="" id="other"> -->
 	</div>
 </section>
@@ -59,7 +59,17 @@
 	<button type="button" name="calculate">Show me the Tip!</button>
 </section>
 
-<p></p>
+<div class="overlay">
+	<div class="toolbar"><a class="close" href="#">x close</a></div>
+	<br>
+	Divided Check Total:
+	<br>
+	Divided Tax Total:
+	<br>
+	Divided Tip Total:
+	<br>
+	Divided Total:
+</div>
 
 
 </body>

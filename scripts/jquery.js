@@ -15,15 +15,10 @@ $(document).ready(function(){
         	}
     });
 
-    //Tip Ammount: on focus of "other" text box, other Radio checked=true
-     $("[name=otherTextbox]").focus(function(){
-        $("[name=tip][value='']").prop("checked",true);
-    });
-
      //Tip Selection Button Color
      $("input[name='tip']").change(function(){
-        $("label[name='tip-amount-lbl']").removeClass('tip-lbl-select');
-        if($("input[name='tip']").is(':checked')) { $(this).parent("label").addClass('tip-lbl-select'); }
+        $("label[name='tip-amount-btn']").removeClass('tip-btn-select');
+        if($("input[name='tip']").is(':checked')) { $(this).parent("label").addClass('tip-btn-select'); }
     });
 
      //Dollar Amount Textbox, format value on keyup.
@@ -44,7 +39,13 @@ $(document).ready(function(){
     //Calculate Button
     $("[name=calculate]").click(function(){
         //$("body").append(calculateBill());
-        $('p').html(calculateBill());
+       // $('p').html(calculateBill());
+       $(".overlay").fadeIn();
+    });
+
+    $(".overlay a").click(function(){
+        console.log("close");
+        $(".overlay").fadeOut();
     });
 
 });

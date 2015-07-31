@@ -5,6 +5,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script type='text/javascript' src='scripts/jquery.js'></script>
         <!--<script type='text/javascript' src='scripts/javascript.js'></script>-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link href="css/main.css" rel="stylesheet"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	</head>
@@ -13,7 +14,7 @@
 <section id="guest-count">
 	<h1>number in party:</h1>
 	<br>
-	<div id="guest-wrapper">
+	<div id="center-wrapper">
 		<button type="button" name = "subtract" class="btn guest-button"> - </button>
 		<div id="guest-background">
 			<input type="text" name="party" readonly value = "2" class="textbox unselectable guest-tb">
@@ -27,10 +28,9 @@
 <h1>tip amount:</h1>
 <br>	
 	<div class="tip-wrapper">
-		<label class="btn tip-btn" name="tip-amount-btn"><input type="radio" name="tip" value=".15" >15%</label>
+		<label class="btn tip-btn tip-btn-left" name="tip-amount-btn"><input type="radio" name="tip" value=".15" >15%</label>
 		<label class="btn tip-btn" name="tip-amount-btn"><input type="radio" name="tip" value=".18" >18%</label>
-		<label class="btn tip-btn" name="tip-amount-btn"><input type="radio" name="tip" value="" >Other</label>
-		<!-- <input type="text" name="otherTextbox" value="" id="other"> -->
+		<label class="btn tip-btn tip-btn-right" name="tip-amount-btn"><input type="radio" name="tip" value="" > <i class="fa fa-pencil-square-o"></i></label>
 	</div>
 </section>
 
@@ -56,7 +56,9 @@
 
 <!-- Calculate -->
 <section id="calculate">
-	<button type="button" name="calculate">Show me the Tip!</button>
+	<div id="center-wrapper">
+		<button type="button" class="btn calc-btn" name="calculate">Tippy, Compute!</button>
+	</div>
 </section>
 
 <div class="overlay">

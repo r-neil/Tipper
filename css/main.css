@@ -32,20 +32,20 @@ section#guest-count, section#tip_percent, section#before_tax, section#after_tax,
 }
 
 .btn:hover{
-	background-color: pink;
+	background-color: #B0E2FF;
 }
 
 .btn:active{
 	background-color: #D3D3D3;
 }
 
-/* Guest Count*/
-#guest-wrapper{
+#center-wrapper{
 	margin-right: auto;
 	margin-left:auto;
 	width: 210px;
 }
 
+/* Guest Count*/
 .guest-button{
 	padding: 10px 20px 10px 20px;
 	border-radius: 10px;
@@ -87,12 +87,28 @@ section#guest-count, section#tip_percent, section#before_tax, section#after_tax,
 }
 
 .tip-wrapper{
-	display:inline;
+	/*display:inline;*/
+	width:265px;
+	margin-right: auto;
+	margin-left:auto;
+
 }
 .tip-btn{
+	width:45px;
 	display:inline-block;
 	padding: 20px;
 	margin:-3px;
+	text-align: center;
+
+}
+.tip-btn-right{
+	border-top-right-radius:10px;
+	border-bottom-right-radius:10px;
+}
+
+.tip-btn-left{
+	border-top-left-radius:10px;
+	border-bottom-left-radius:10px;
 }
 
 .tip-btn-select{
@@ -107,7 +123,7 @@ section#guest-count, section#tip_percent, section#before_tax, section#after_tax,
 	margin-left: auto;
 }
 .dollar-tb-select{
-	border: solid #37FDFC 2px;
+	border: solid #B0E2FF 2px;
 }
 .dollar-sign{
 	float:left;
@@ -120,7 +136,16 @@ section#guest-count, section#tip_percent, section#before_tax, section#after_tax,
 .dollar-tb:focus{
 	outline:0;
 }
-/*Calculate*/
+/*Calculate button*/
+
+.calc-btn{
+	border-radius: 10px;
+}
+
+/*Overlay*/
+.overlay{
+	display:none;
+}
 
 .overlay{
 	display:none;

@@ -23,6 +23,17 @@
 	</div>
 </section>
 
+<!-- Enter Tip -->
+<section id="enter_tip">
+	<div id="tip_overlay" class="overlay overlay-disappear">
+		<div id="close_btn"><a class="close" href="#">X</a></div>
+		<br>
+		<h1>enter tip amount:</h1>
+		<br>
+		<input type="tel" name="enterTip" class="textbox dollar-tb" value="20"> %
+	</div>
+</section>
+
 <!-- Tip Percentage -->
 <section id="tip_percent">
 <h1>tip amount:</h1>
@@ -30,7 +41,7 @@
 	<div class="tip-wrapper">
 		<label class="btn tip-btn tip-btn-left" name="tip-amount-btn"><input type="radio" name="tip" value=".15" >15%</label>
 		<label class="btn tip-btn" name="tip-amount-btn"><input type="radio" name="tip" value=".18" >18%</label>
-		<label class="btn tip-btn tip-btn-right" name="tip-amount-btn"><input type="radio" name="tip" value="" > <i class="fa fa-pencil-square-o"></i></label>
+		<label class="btn tip-btn tip-btn-right" name="tip-amount-btn"><input type="radio" class = "enter_tip_btn" name="tip" value=""><i class="fa fa-pencil-square-o"></i></label>
 	</div>
 </section>
 
@@ -61,7 +72,7 @@
 	</div>
 </section>
 
-<div class="overlay">
+<!-- <div class="overlay">
 	<div class="toolbar"><a class="close" href="#">x close</a></div>
 	<br>
 	Divided Check Total:
@@ -71,7 +82,7 @@
 	Divided Tip Total:
 	<br>
 	Divided Total:
-</div>
+</div> -->
 
 
 </body>

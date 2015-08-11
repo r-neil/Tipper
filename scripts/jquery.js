@@ -21,6 +21,16 @@ $(document).ready(function(){
         if($("input[name='tip']").is(':checked')) { $(this).parent("label").addClass('tip-btn-select'); }
     });
 
+     //Enter Tip Overlay Appear
+     $("input[class='enter_tip_btn']").click(function(){
+        $("#tip_overlay").fadeIn();
+     });
+
+     //Enter Tip Overlay Disappear
+     $("#close_btn").click(function(){
+        $("#tip_overlay").fadeOut();
+     });
+
      //Dollar Amount Textbox, format value on keyup.
      $(".dollar-tb").keyup(function(){
         $(this).val(formatDollar($(this).val()));

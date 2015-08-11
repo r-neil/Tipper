@@ -1,12 +1,12 @@
 @import url(font/SanFranciscoFont/usesf.css);
 
 
-h1, label, button, input, a, .dollar-sign{
+h1, label, button, input, a, .dollar-sign, .percent-sign{
 	font-family: 'San Francisco Text', sans-serif;
 	font-weight: 300;
 }
 h1{
-	margin:0;
+	margin:0px 0px 0px 10px;
 }
 section#guest-count, section#tip_percent, section#before_tax, section#after_tax, section#calculate
 {
@@ -29,6 +29,14 @@ section#enter_tip{
 	top:15%;
 	margin-right: 5px;
 	margin-left: 5px;
+}
+
+.tb-wrapper{
+	width:100px;
+	height: 50px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color:white;
 }
 
 .btn{
@@ -94,7 +102,6 @@ section#enter_tip{
 }
 
 .tip-wrapper{
-	/*display:inline;*/
 	width:265px;
 	margin-right: auto;
 	margin-left:auto;
@@ -124,11 +131,8 @@ section#enter_tip{
 
 /*Enter Tip*/
 
-.overlay-disappear{
-	display:none;
-}
-
 .overlay{
+	display:none;
 	margin: 0 auto;
 	position: absolute;
     width: 330px;
@@ -153,13 +157,13 @@ a {
 	text-decoration: none;
 }
 
-/*Check Total*/
-.dollar-sign-wrapper{
-	width:100px;
-	height: 50px;
-	margin-right: auto;
-	margin-left: auto;
+.percent-sign{
+	float:right;
+	font-size: 20px;	
 }
+
+
+/*Check Total*/
 .dollar-tb-select{
 	border: solid #B0E2FF 2px;
 }

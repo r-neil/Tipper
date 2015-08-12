@@ -1,6 +1,5 @@
 @import url(font/SanFranciscoFont/usesf.css);
 
-
 h1, label, button, input, a, .dollar-sign, .percent-sign{
 	font-family: 'San Francisco Text', sans-serif;
 	font-weight: 300;
@@ -15,13 +14,16 @@ section#guest-count, section#tip_percent, section#before_tax, section#after_tax,
 	margin-right: auto;
 	margin-left:auto;
 }
-section#enter_tip{
+section#overlay{
 	height: 1px;
 	width: 350px;
 	margin-right: auto;
 	margin-left:auto;	
 }
 
+.center-helper{
+	text-align: center;
+}
 .textbox{
 	width:75px;
 	font-size: 24px;
@@ -31,12 +33,22 @@ section#enter_tip{
 	margin-left: 5px;
 }
 
+.textbox:focus{
+	outline:0;	
+}
+
 .tb-wrapper{
 	width:100px;
 	height: 50px;
 	margin-right: auto;
 	margin-left: auto;
 	background-color:white;
+	display: inline-block;
+	border: solid #ffffff 2px;
+}
+
+.tb-select{
+	border: solid #B0E2FF 2px;
 }
 
 .btn{
@@ -44,6 +56,9 @@ section#enter_tip{
 	background-color: #ffffff;
 	border: solid #000000 1px;
 	cursor:pointer;
+}
+.btn-round{
+	border-radius: 10px;
 }
 
 .btn:hover{
@@ -56,8 +71,9 @@ section#enter_tip{
 
 .center-wrapper{
 	margin-right: auto;
-	margin-left:auto;
-	width: 210px;
+	margin-left: auto;
+	display:inline-block;
+	min-width: 215px;
 }
 
 /* Guest Count*/
@@ -138,8 +154,8 @@ section#enter_tip{
     width: 330px;
     min-height: 200px;
     z-index: 100;
-    background-color: #7D7D7D;
-    border: 10px solid #FFFFFF;
+    background-color:  #FFFFFF;
+    border: 10px solid #7D7D7D;
     box-shadow: 0 0 16px #000;
 }
 
@@ -173,9 +189,7 @@ a {
 }
 
 /*Check Total*/
-.dollar-tb-select{
-	border: solid #B0E2FF 2px;
-}
+
 .dollar-sign{
 	float:left;
 	font-size: 20px;	
@@ -183,12 +197,4 @@ a {
 .dollar-tb{
 	float:left;
 	border:none;
-}
-.dollar-tb:focus{
-	outline:0;
-}
-/*Calculate button*/
-
-.calc-btn{
-	border-radius: 10px;
 }

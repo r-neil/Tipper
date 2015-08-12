@@ -26,9 +26,9 @@ $(document).ready(function(){
         $("#tip_overlay").fadeIn();
      });
 
-     //Enter Tip Overlay Disappear
-     $("#close_btn").click(function(){
-        $("#tip_overlay").fadeOut();
+     //Close button action in overlays
+     $(".close_btn").click(function(){
+       $(this).parent('div').fadeOut();
      });
 
      //Dollar Amount Textbox, format value on keyup.
@@ -37,27 +37,19 @@ $(document).ready(function(){
      });
 
      //Dollar Amount Textbox highlight when focus
-     $(".dollar-tb").focus(function(){
-        $(this).parent('div').addClass('dollar-tb-select');
+     $(".textbox").focus(function(){
+        $(this).parent('div').addClass('tb-select');
      });
 
      //Dollar Amount Textbox remove highligh on blur
-    $(".dollar-tb").blur(function(){
-        $(this).parent('div').removeClass('dollar-tb-select');
+    $(".textbox").blur(function(){
+        $(this).parent('div').removeClass('tb-select');
      });
 
     //Calculate Button
     $("[name=calculate]").click(function(){
-        //$("body").append(calculateBill());
-       // $('p').html(calculateBill());
-       $(".overlay").fadeIn();
+        $("#result_overlay").fadeIn();
     });
-
-    $(".overlay a").click(function(){
-        console.log("close");
-        $(".overlay").fadeOut();
-    });
-
 });
 
 function calculateBill(){
@@ -104,5 +96,3 @@ function formatDollar(amount){
     }
     return num;
 }
-
-

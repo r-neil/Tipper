@@ -30,8 +30,12 @@
 		<h1>enter tip amount:</h1>
 		<br>
 		<div class="tb-wrapper">
-			<input type="tel" name="enterTip" class="textbox" value="20">
-			<div class="percent-sign"> % </div>
+			<input type="tel" name="enterTip" class="textbox tip-tb" value="20" onclick="this.select();">
+			<div class="percent-sign">%</div>
+		</div>
+		<br>
+		<div class="center-wrapper">
+			<button type="button" class="btn" name="calculate">use tip</button>
 		</div>
 	</div>
 </section>
@@ -69,7 +73,7 @@
 
 <!-- Calculate -->
 <section id="calculate">
-	<div id="center-wrapper">
+	<div class="center-wrapper">
 		<button type="button" class="btn calc-btn" name="calculate">Tippy, Compute!</button>
 	</div>
 </section>

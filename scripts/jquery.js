@@ -23,12 +23,14 @@ $(document).ready(function(){
 
      //Enter Tip Overlay Appear
      $("input[class='enter_tip_btn']").click(function(){
+        disableForm();
         $("#tip_overlay").fadeIn();
      });
 
      //Close button action in overlays
      $(".close_btn").click(function(){
        $(this).parent('div').fadeOut();
+       enableForm();
      });
 
      //Dollar Amount Textbox, format value on keyup.
@@ -48,6 +50,8 @@ $(document).ready(function(){
 
     //Calculate Button
     $("[name=calculate]").click(function(){
+        calculateBill();
+        disableForm();
         $("#result_overlay").fadeIn();
     });
 });
@@ -61,15 +65,15 @@ function calculateBill(){
 
     console.log("perTax: "+preTax);
 
-    var singlePreTax = preTax/party;
-    var singleTax = (postTax - preTax)/party;
-    var singleTip = (preTax * tip)/ party;
-    var singleTotal = (preTax * (1+tip))/party + tax/party;
+    var indTotal = preTax/party;
+    var indTax = (postTax - preTax)/party;
+    var indTip = (preTax * tip)/ party;
+    var indGTotal = (preTax * (1+tip))/party + tax/party;
 
-    return "<p>Divided Check Total: " + singlePreTax +
-            "<br> Divided Tax Total: " + singleTax +
-            "<br> Divided Tip Total: " + singleTip +
-            "<br> Diviced Total: " + singleTotal + "</p>"
+    $("#ind-total").replaceWith("<td class = 'row-value' id='ind-total'>$"+indTotal+"</td>");
+    $("#ind-tax").replaceWith("<td class = 'row-value' id='ind-total'>$"+indTax+"</td>");
+    $("#ind-tip").replaceWith("<td class = 'row-value row-underline' id='ind-total'>$"+indTip+"</td>");
+    $("#ind-g-total").replaceWith("<td class = 'row-value row-double-underline' id='ind-total'>$"+indGTotal+"</td>");
 }
 
 function tipAmmount(){
@@ -95,4 +99,14 @@ function formatDollar(amount){
         num = 0;
     }
     return num;
+}
+
+function disableForm(){
+    // $(".btn").prop("disabled",true);
+    $(".overlay-shade").fadeIn();
+
+}
+function enableForm(){
+    // $(".btn").prop("disabled",false);
+     $(".overlay-shade").fadeOut();
 }

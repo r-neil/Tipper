@@ -6,10 +6,11 @@
         <script type='text/javascript' src='scripts/jquery.js'></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link href="css/main.css" rel="stylesheet"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	</head>
 <body>	
 <!-- Guest Count -->
+<div class="overlay-shade"></div>
 <section id="guest-count">
 	<h1>number in party:</h1>
 	<br>
@@ -39,32 +40,62 @@
 			</div>
 			<br>
 			<div class="center-wrapper">
-				<button type="button" class="btn btn-round" name="calculate">use tip</button>
+				<button type="button" class="btn btn-round" name="use_tip">use tip</button>
 			</div>
 		</div>
 	</div>
 	<!-- Display Results -->
 	<div id="result_overlay" class="overlay">
 		<div class="close_btn"><a class="close" href="#">X</a></div>
+		<table>	
+			<tr>
+				<td class = "row-title">Individual Check Total:</td>
+				<td class = "row-value" id="ind-total"></td>
+			</tr>
+			<tr>
+				<td class = "row-title">Individual Tax Total</td>
+				<td class = "row-value" id="ind-tax"></td>
+			</tr>
+			<tr>
+				<td class = "row-title row-underline">Individual Tip Total:</td>
+				<td class = "row-value row-underline" id="ind-tip"></td>
+			</tr>
+			<tr>
+				<td class = "row-title">Individual Grand Total:</td>
+				<td class = "row-value row-double-underline" id="ind-g-total"></td>
+			</tr>
+		</table>
 		<br>
-		Divided Check Total:
-		<br>
-		Divided Tax Total:
-		<br>
-		Divided Tip Total:
-		<br>
-		Divided Total:
-	</div>
+		<table>
+			<tr>
+				<td class = "row-title">Check Total:</td>
+				<td class = "row-value">$1,000.00</td>
+			</tr>
+			<tr>
+				<td class = "row-title">Tax Total</td>
+				<td class = "row-value">$1,000.00</td>
+			</tr>
+			<tr>
+				<td class = "row-title row-underline">Tip Total:</td>
+				<td class = "row-value row-underline">$1,000.00</td>
+			</tr>
+			<tr>
+				<td class = "row-title">Grand Total:</td>
+				<td class = "row-value row-double-underline">$1,000.00</td>
+			</tr>
+		</table>
 </section>
 
 <!-- Tip Percentage -->
 <section id="tip_percent">
 <h1>tip amount:</h1>
-<br>	
-	<div class="tip-wrapper">
-		<label class="btn tip-btn tip-btn-left" name="tip-amount-btn"><input type="radio" name="tip" value=".15" >15%</label>
-		<label class="btn tip-btn" name="tip-amount-btn"><input type="radio" name="tip" value=".18" >18%</label>
-		<label class="btn tip-btn tip-btn-right" name="tip-amount-btn"><input type="radio" class = "enter_tip_btn" name="tip" value=""><i class="fa fa-pencil-square-o"></i></label>
+<br>
+	<div class="center-helper">
+		<div class="tip-wrapper">
+			<label class="btn tip-btn tip-btn-left" name="tip-amount-btn"><input type="radio" name="tip" value=".15" >15%</label>
+			<label class="btn tip-btn" name="tip-amount-btn"><input type="radio" name="tip" value=".18" >18%</label>
+			<label class="btn tip-btn tip-btn-right" name="tip-amount-btn"><input type="radio" class = "enter_tip_btn" name="tip" value=""><i class="fa fa-pencil-square-o"></i></label>
+		</div>
 	</div>
 </section>
 

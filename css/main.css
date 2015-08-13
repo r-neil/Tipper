@@ -1,6 +1,6 @@
 @import url(font/SanFranciscoFont/usesf.css);
 
-h1, label, button, input, a, .dollar-sign, .percent-sign{
+h1, label, button, input, table, p, .dollar-sign, .percent-sign{
 	font-family: 'San Francisco Text', sans-serif;
 	font-weight: 300;
 }
@@ -118,9 +118,10 @@ section#overlay{
 }
 
 .tip-wrapper{
-	width:265px;
+	/*width:265px;*/
 	margin-right: auto;
 	margin-left:auto;
+	display:inline-block;
 
 }
 .tip-btn{
@@ -145,7 +146,7 @@ section#overlay{
 	background-color: #D3D3D3;
 }
 
-/*Enter Tip*/
+/*OverLay*/
 
 .overlay{
 	display:none;
@@ -157,6 +158,17 @@ section#overlay{
     background-color:  #FFFFFF;
     border: 10px solid #7D7D7D;
     box-shadow: 0 0 16px #000;
+}
+.overlay-shade {
+	display:none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    background-color: #D3D3D3;
+    opacity: 0.5;
 }
 
 .close{
@@ -172,7 +184,7 @@ a {
 	color:inherit;
 	text-decoration: none;
 }
-
+/*Enter Tip*/
 .percent-sign{
 	float:left;
 	font-size: 20px;	
@@ -188,7 +200,27 @@ a {
 	outline:0;
 }
 
-/*Check Total*/
+/*Results Overlay*/
+table{
+	width: 90%;
+	border-collapse: collapse;
+	margin-left: 5px;
+	margin-bottom: 5px;
+}
+.row-title{
+	width:75%;
+}
+.row-value{
+	width:25%;
+}
+.row-underline{
+	border-bottom: 1px solid black;
+}
+.row-double-underline{
+	border-bottom: 3px double black;
+}
+
+/*Tab/Check Total*/
 
 .dollar-sign{
 	float:left;

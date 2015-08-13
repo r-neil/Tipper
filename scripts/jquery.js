@@ -58,26 +58,32 @@ $(document).ready(function(){
 
 function calculateBill(){
     var party = parseInt($("[name=party]").val(),10);
-    var preTax = parseInt($("[name=preTax]").val(),10);
+    var total = parseInt($("[name=preTax]").val(),10);
     var postTax = parseInt($("[name=postTax]").val(),10);
-    var tax = postTax - preTax;
-    var tip = tipAmmount();
+    var tax = postTax - total;
+    var tip = getTip();
+    var totalTip = (total * tip) * 100;
+    var gTotal = total + tax + totalTip;
 
-    console.log("perTax: "+preTax);
+    var indTotal = total/party;
+    var indTax = (postTax - total)/party;
+    var indTip = totalTip / party;
+    var indGTotal = indTotal + indTax + indTip;
 
-    var indTotal = preTax/party;
-    var indTax = (postTax - preTax)/party;
-    var indTip = (preTax * tip)/ party;
-    var indGTotal = (preTax * (1+tip))/party + tax/party;
+    //Setting Result Overlay values
+    $("#ind-total").replaceWith("<td class = 'row-value' id='ind-total'>$"+indTotal.toFixed(2)+"</td>");
+    $("#ind-tax").replaceWith("<td class = 'row-value' id='ind-total'>$"+indTax.toFixed(2)+"</td>");
+    $("#ind-tip").replaceWith("<td class = 'row-value row-underline' id='ind-total'>$"+indTip.toFixed(2)+"</td>");
+    $("#ind-g-total").replaceWith("<td class = 'row-value row-double-underline' id='ind-total'>$"+indGTotal.toFixed(2)+"</td>");
 
-    $("#ind-total").replaceWith("<td class = 'row-value' id='ind-total'>$"+indTotal+"</td>");
-    $("#ind-tax").replaceWith("<td class = 'row-value' id='ind-total'>$"+indTax+"</td>");
-    $("#ind-tip").replaceWith("<td class = 'row-value row-underline' id='ind-total'>$"+indTip+"</td>");
-    $("#ind-g-total").replaceWith("<td class = 'row-value row-double-underline' id='ind-total'>$"+indGTotal+"</td>");
+    $('#total').replaceWith("<td class = 'row-value' id='total'>$"+total.toFixed(2)+"</td>");
+    $('#tax').replaceWith("<td class = 'row-value' id='tax'>$"+tax.toFixed(2)+"</td>");
+    $('#tip').replaceWith("<td class = 'row-value row-underline' id='tip'>$"+totalTip.toFixed(2)+"</td>");
+    $('#gtotal').replaceWith("<td class = 'row-value row-double-underline' id='gtotal'>$"+gTotal.toFixed(2)+"</td>");
 }
 
-function tipAmmount(){
-    var tip = parseFloat($("[name=tip]:checked").val());
+function getTip(){
+    var tip = parseFloat($("[name=tip]:checked").val()/100);
     if(isNaN(tip)){
         tip = parseInt($("[name=otherTextbox]").val(),10)/100;
     }

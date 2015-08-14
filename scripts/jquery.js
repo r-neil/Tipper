@@ -29,9 +29,18 @@ $(document).ready(function(){
 
      //Close button action in overlays
      $(".close_btn").click(function(){
-       $(this).parent('div').fadeOut();
-       enableForm();
+        closeOverlay(this);
      });
+     // "use tip" button in overlay
+     $("button[name='use_tip']").click(function(){
+        console.log("use tip");
+        var displayTip = parseFloat($("input[name='enterTip']").val());
+        var enteredTip =  displayTip/100;
+        
+        $(".enter_tip_btn").val(enteredTip);
+        $("#editTipValue").replaceWith("<div id='editTipValue'>" + displayTip + "%</div>");
+        closeOverlay();
+    });
 
      //Dollar Amount Textbox, format value on keyup.
      $(".dollar-tb").keyup(function(){
@@ -69,12 +78,12 @@ function calculateBill(){
     var indTax = (postTax - total)/party;
     var indTip = totalTip / party;
     var indGTotal = indTotal + indTax + indTip;
-
+    
     //Setting Result Overlay values
     $("#ind-total").replaceWith("<td class = 'row-value' id='ind-total'>$"+indTotal.toFixed(2)+"</td>");
     $("#ind-tax").replaceWith("<td class = 'row-value' id='ind-total'>$"+indTax.toFixed(2)+"</td>");
-    $("#ind-tip").replaceWith("<td class = 'row-value row-underline' id='ind-total'>$"+indTip.toFixed(2)+"</td>");
-    $("#ind-g-total").replaceWith("<td class = 'row-value row-double-underline' id='ind-total'>$"+indGTotal.toFixed(2)+"</td>");
+    $("#ind-tip").replaceWith("<td class = 'row-value row-underline' id='ind-tip'>$"+indTip.toFixed(2)+"</td>");
+    $("#ind-g-total").replaceWith("<td class = 'row-value row-double-underline' id='ind-g-total'>$"+indGTotal.toFixed(2)+"</td>");
 
     $('#total').replaceWith("<td class = 'row-value' id='total'>$"+total.toFixed(2)+"</td>");
     $('#tax').replaceWith("<td class = 'row-value' id='tax'>$"+tax.toFixed(2)+"</td>");
@@ -112,7 +121,8 @@ function disableForm(){
     $(".overlay-shade").fadeIn();
 
 }
-function enableForm(){
+function closeOverlay(overlay){
     // $(".btn").prop("disabled",false);
+     $(".overlay").fadeOut();
      $(".overlay-shade").fadeOut();
 }

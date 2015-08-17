@@ -42,10 +42,22 @@ $(document).ready(function(){
         closeOverlay();
     });
 
-     //Dollar Amount Textbox, format value on keyup.
-     $(".dollar-tb").keyup(function(){
-        $(this).val(formatDollar($(this).val()));
-     });
+     // //Dollar Amount Textbox, format value on keyup.
+     // $(".dollar-tb").keypress(function(event){
+     //   // $(this).val(formatDollar($(this).val()));
+     //    onlyNumbers(event);
+     // });
+
+
+    $(".dollar-tb").keypress(function(e){
+        //return onlyNumbers(e);
+    });
+
+     $(".dollar-tb").on('input',function(){
+      $(this).val(formatDollar($(this).val()));
+    });
+
+
 
      //Dollar Amount Textbox highlight when focus
      $(".textbox").focus(function(){
@@ -107,15 +119,6 @@ function ifDisableSubButton(party){
     }
 }
 
-function formatDollar(amount){
-    var str = amount.replace(".","");
-    var num = parseInt(str,10)/100;
-    if(isNaN(num)){
-        num = 0;
-    }
-    return num;
-}
-
 function disableForm(){
     // $(".btn").prop("disabled",true);
     $(".overlay-shade").fadeIn();
@@ -125,4 +128,27 @@ function closeOverlay(overlay){
     // $(".btn").prop("disabled",false);
      $(".overlay").fadeOut();
      $(".overlay-shade").fadeOut();
+}
+
+function formatDollar(amount){
+    var str = amount.replace(".","");
+    var strLength = str.length;
+    var num = parseInt(str,10)/100;
+    
+    // if(strLength >5){
+    //     num = [num.slice(0,1),num.slice(strLength)].join();
+    //     console.log("slicing: "+num);
+    //     return "1,000.00";
+    // }
+
+    //prevents numbers greater than 9,999.99
+    if(strLength > 7){
+        var preAmount = amount.substr(0,8)
+        return preAmount;
+    }
+    //protects against NaN values
+    if(isNaN(num)){
+        num = 0;
+    }
+       return num.toFixed(2);
 }

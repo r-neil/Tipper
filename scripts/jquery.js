@@ -41,30 +41,22 @@ $(document).ready(function(){
         $("#editTipValue").replaceWith("<div id='editTipValue'>" + displayTip + "%</div>");
         closeOverlay();
     });
-
-     // //Dollar Amount Textbox, format value on keyup.
-     // $(".dollar-tb").keypress(function(event){
-     //   // $(this).val(formatDollar($(this).val()));
-     //    onlyNumbers(event);
-     // });
-
-
-    $(".dollar-tb").keypress(function(e){
-        //return onlyNumbers(e);
-    });
-
+     //format dollar amount
      $(".dollar-tb").on('input',function(){
       $(this).val(formatDollar($(this).val()));
     });
 
+     //format percent amount
+    $(".tip-tb").on('input',function(){
+        $(this).val(formatPercent($(this).val()));
+    });
 
-
-     //Dollar Amount Textbox highlight when focus
+     //Textbox highlight when focus
      $(".textbox").focus(function(){
         $(this).parent('div').addClass('tb-select');
      });
 
-     //Dollar Amount Textbox remove highligh on blur
+     //Textbox remove highligh on blur
     $(".textbox").blur(function(){
         $(this).parent('div').removeClass('tb-select');
      });
@@ -79,8 +71,8 @@ $(document).ready(function(){
 
 function calculateBill(){
     var party = parseInt($("[name=party]").val(),10);
-    var total = parseInt($("[name=preTax]").val(),10);
-    var postTax = parseInt($("[name=postTax]").val(),10);
+    var total = parseInt(removeCommaSeperator($("[name=preTax]").val()),10);
+    var postTax = parseInt(removeCommaSeperator($("[name=postTax]").val()),10);
     var tax = postTax - total;
     var tip = getTip();
     var totalTip = (total * tip) * 100;
@@ -108,6 +100,9 @@ function getTip(){
     if(isNaN(tip)){
         tip = parseInt($("[name=otherTextbox]").val(),10)/100;
     }
+    if(isNaN(tip)){
+        tip = 0;
+    }
     return tip;
 }
 
@@ -120,35 +115,62 @@ function ifDisableSubButton(party){
 }
 
 function disableForm(){
-    // $(".btn").prop("disabled",true);
     $(".overlay-shade").fadeIn();
 
 }
 function closeOverlay(overlay){
-    // $(".btn").prop("disabled",false);
      $(".overlay").fadeOut();
      $(".overlay-shade").fadeOut();
 }
 
 function formatDollar(amount){
     var str = amount.replace(".","");
+    str = str.replace(",","");
     var strLength = str.length;
-    var num = parseInt(str,10)/100;
+    var num = (parseInt(str,10)/100).toFixed(2);
     
-    // if(strLength >5){
-    //     num = [num.slice(0,1),num.slice(strLength)].join();
-    //     console.log("slicing: "+num);
-    //     return "1,000.00";
-    // }
-
-    //prevents numbers greater than 9,999.99
-    if(strLength > 7){
-        var preAmount = amount.substr(0,8)
-        return preAmount;
-    }
     //protects against NaN values
     if(isNaN(num)){
         num = 0;
     }
-       return num.toFixed(2);
+
+    //add comma to values greater than 999.99
+    if(strLength == 6){
+        num = addCommaSeperator(num);
+    }
+
+    //prevents numbers greater than 9,999.99
+    if(strLength > 6){
+        var preAmount = amount.substr(0,8);
+        num =  preAmount;
+    }
+
+    return num;
 }
+
+function formatPercent(amount){
+    var strLength = amount.length;
+    var num = parseInt(amount,10);
+
+    //protects against NaN values
+    if(isNaN(num)){
+        num = 0;
+    }
+
+    //prevents numbers greater than 999
+    if (strLength >3){
+        var preAmount = amount.substr(0,3);
+        num = preAmount;
+    }
+    return num;
+}
+
+function addCommaSeperator(x) {
+    return x.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ",");
+}
+
+function removeCommaSeperator(x){
+    var str = x.replace(",","");
+    return str;
+}
+

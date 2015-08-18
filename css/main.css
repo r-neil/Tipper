@@ -98,6 +98,7 @@ section#overlay{
 }
 
 .guest-tb{
+	width: 80px;
 	margin-right:auto;
 	margin-left:auto;
 	text-align:center;

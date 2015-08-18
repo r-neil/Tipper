@@ -1,5 +1,8 @@
 @import url(font/SanFranciscoFont/usesf.css);
 
+body{
+	overflow-x: hidden;
+}
 h1, label, button, input, table, p, .dollar-sign, .percent-sign{
 	font-family: 'San Francisco Text', sans-serif;
 	font-weight: 300;
@@ -7,10 +10,11 @@ h1, label, button, input, table, p, .dollar-sign, .percent-sign{
 h1{
 	margin:0px 0px 0px 10px;
 }
-section#guest-count, section#tip_percent, section#before_tax, section#after_tax, section#calculate
+section#guest-count, section#tip_percent, section#sub_total, section#after_tax, section#calculate
 {
 	height: 150px;
-	width: 350px;
+	width: 100%;
+	max-width: 400px;
 	margin-right: auto;
 	margin-left:auto;
 }
@@ -153,11 +157,12 @@ section#overlay{
 	display:none;
 	margin: 0 auto;
 	position: absolute;
-    width: 330px;
+	width: 90%;
+	max-width: 300px;
     min-height: 200px;
     z-index: 100;
     background-color:  #FFFFFF;
-    border: 10px solid #7D7D7D;
+	border: 10px solid #7D7D7D;
     box-shadow: 0 0 16px #000;
 }
 .overlay-shade {

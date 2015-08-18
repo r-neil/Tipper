@@ -35,7 +35,7 @@
 		<br>
 		<div class="center-helper">
 			<div class="tb-wrapper">
-				<input type="tel" name="enterTip" class="textbox tip-tb" value="20" onclick="this.select();">
+				<input type="tel" name="enterTip" class="textbox tip-tb" value="20" onclick="this.setSelectionRange(0, this.value.length);">
 				<div class="percent-sign">%</div>
 			</div>
 			<br>
@@ -43,7 +43,7 @@
 				<button type="button" class="btn btn-round" name="use_tip">use tip</button>
 			</div>
 		</div>
-	</div>
+	</div> 
 	<!-- Display Results -->
 	<div id="result_overlay" class="overlay">
 		<div class="close_btn"><a class="close" href="#">X</a></div>
@@ -99,14 +99,14 @@
 	</div>
 </section>
 
-<!-- Pre-tax amount -->
-<section id="before_tax">
+<!-- Subtotal amount -->
+<section id="sub_total">
 <h1>subtotal (before tax):</h1>
 <br>
 	<div class="center-helper">
 		<div class="tb-wrapper">
 			<div class="dollar-sign">$</div> 
-			<input type="tel" name="preTax" value = "45.00" class="textbox dollar-tb" onclick="this.select();">
+			<input type="tel" name="subTotal" value = "45.00" class="textbox dollar-tb" onclick="this.setSelectionRange(0, this.value.length);">
 		</div>
 	</div>
 </section>
@@ -118,7 +118,7 @@
 	<div class="center-helper">
 		<div class="tb-wrapper">
 			<div class="dollar-sign">$</div> 
-			<input type="tel" name="postTax" value = "50.00" class="textbox dollar-tb" onclick="this.select();">
+			<input type="tel" name="postTax" value = "50.00" class="textbox dollar-tb" onclick="this.setSelectionRange(0, this.value.length);">
 		</div>
 	</div>
 </section>

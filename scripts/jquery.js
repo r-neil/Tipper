@@ -71,26 +71,28 @@ $(document).ready(function(){
 
 function calculateBill(){
     var party = parseInt($("[name=party]").val(),10);
-    var total = parseInt(removeCommaSeperator($("[name=preTax]").val()),10);
+    var subTotal = parseInt(removeCommaSeperator($("[name=subTotal]").val()),10);
     var postTax = parseInt(removeCommaSeperator($("[name=postTax]").val()),10);
-    var tax = postTax - total;
     var tip = getTip();
-    var totalTip = (total * tip) * 100;
-    var gTotal = total + tax + totalTip;
 
-    var indTotal = total/party;
-    var indTax = (postTax - total)/party;
+    
+    var totalTax = postTax - subTotal;
+    var totalTip = (subTotal * tip) * 100;
+    var gTotal = subTotal + totalTax + totalTip;
+
+    var indTotal = subTotal/party;
+    var indTax = (postTax - subTotal)/party;
     var indTip = totalTip / party;
     var indGTotal = indTotal + indTax + indTip;
     
     //Setting Result Overlay values
     $("#ind-total").replaceWith("<td class = 'row-value' id='ind-total'>$"+indTotal.toFixed(2)+"</td>");
-    $("#ind-tax").replaceWith("<td class = 'row-value' id='ind-total'>$"+indTax.toFixed(2)+"</td>");
+    $("#ind-tax").replaceWith("<td class = 'row-value' id='ind-tax'>$"+indTax.toFixed(2)+"</td>");
     $("#ind-tip").replaceWith("<td class = 'row-value row-underline' id='ind-tip'>$"+indTip.toFixed(2)+"</td>");
     $("#ind-g-total").replaceWith("<td class = 'row-value row-double-underline' id='ind-g-total'>$"+indGTotal.toFixed(2)+"</td>");
 
-    $('#total').replaceWith("<td class = 'row-value' id='total'>$"+total.toFixed(2)+"</td>");
-    $('#tax').replaceWith("<td class = 'row-value' id='tax'>$"+tax.toFixed(2)+"</td>");
+    $('#total').replaceWith("<td class = 'row-value' id='total'>$"+subTotal.toFixed(2)+"</td>");
+    $('#tax').replaceWith("<td class = 'row-value' id='tax'>$"+totalTax.toFixed(2)+"</td>");
     $('#tip').replaceWith("<td class = 'row-value row-underline' id='tip'>$"+totalTip.toFixed(2)+"</td>");
     $('#gtotal').replaceWith("<td class = 'row-value row-double-underline' id='gtotal'>$"+gTotal.toFixed(2)+"</td>");
 }
@@ -173,4 +175,3 @@ function removeCommaSeperator(x){
     var str = x.replace(",","");
     return str;
 }
-

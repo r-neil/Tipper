@@ -28,7 +28,8 @@ $(document).ready(function(){
      });
 
      //Close button action in overlays
-     $(".close_btn").click(function(){
+     $(".close_btn").click(function(e){
+        e.preventDefault(); //prevents page jump
         closeOverlay(this);
      });
      // "use tip" button in overlay
@@ -61,6 +62,16 @@ $(document).ready(function(){
         $(this).parent('div').removeClass('tb-select');
      });
 
+    //Info Button Overlay
+    $(".tipInfo_btn").click(function(e){
+         e.preventDefault(); //prevents page jump
+        $("#how-tip-calc").fadeIn();
+    });
+
+    $("[name = 'info-close']").click(function(){
+        $("#how-tip-calc").fadeOut();
+    });
+
     //Calculate Button
     $("[name=calculate]").click(function(){
         calculateBill();
@@ -74,17 +85,30 @@ function calculateBill(){
     var subTotal = parseInt(removeCommaSeperator($("[name=subTotal]").val()),10);
     var postTax = parseInt(removeCommaSeperator($("[name=postTax]").val()),10);
     var tip = getTip();
-
     
-    var totalTax = postTax - subTotal;
     var totalTip = (subTotal * tip) * 100;
-    var gTotal = subTotal + totalTax + totalTip;
-
-    var indTotal = subTotal/party;
-    var indTax = (postTax - subTotal)/party;
     var indTip = totalTip / party;
-    var indGTotal = indTotal + indTax + indTip;
-    
+
+    resetTipHelpOverlay();
+
+    if(isTotalGreater(subTotal,postTax)){
+        showTipHelpTotalGreater();
+        var totalTax = postTax - subTotal;
+        var gTotal = subTotal + totalTax + totalTip;
+
+        var indTotal = subTotal/party;
+        var indTax = (postTax - subTotal)/party;
+        var indGTotal = indTotal + indTax + indTip; 
+    }else{
+        showTipHelpTotalLessThan();
+        var totalTax = 0;
+        var gTotal = postTax + totalTax + totalTip;
+
+        var indTotal = postTax/party;
+        var indTax = 0;
+        var indGTotal = indTotal + indTax + indTip; 
+    }
+   
     //Setting Result Overlay values
     $("#ind-total").replaceWith("<td class = 'row-value' id='ind-total'>$"+indTotal.toFixed(2)+"</td>");
     $("#ind-tax").replaceWith("<td class = 'row-value' id='ind-tax'>$"+indTax.toFixed(2)+"</td>");
@@ -106,6 +130,27 @@ function getTip(){
         tip = 0;
     }
     return tip;
+}
+
+function isTotalGreater(subTotal, total){
+    var BOOL = false;
+    if (subTotal < total){
+        BOOL = true;
+    }
+    return BOOL;
+}
+
+function resetTipHelpOverlay(){
+    $("#tip_help_TotalLessThan").fadeOut();
+    $("#tip_help_TotalGreater").fadeOut();
+}
+
+function showTipHelpTotalGreater(){
+    $("#tip_help_TotalGreater").fadeIn();
+}
+
+function showTipHelpTotalLessThan(){
+    $("#tip_help_TotalLessThan").fadeIn();
 }
 
 function ifDisableSubButton(party){

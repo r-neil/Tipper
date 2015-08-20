@@ -12,7 +12,7 @@ h1{
 }
 section#guest-count, section#tip_percent, section#sub_total, section#after_tax, section#calculate
 {
-	height: 150px;
+	height: 140px;
 	width: 100%;
 	max-width: 400px;
 	margin-right: auto;
@@ -23,6 +23,14 @@ section#overlay{
 	width: 350px;
 	margin-right: auto;
 	margin-left:auto;	
+}
+
+.line{
+	width:150px;
+	border-bottom: 2px solid #D0D0D0;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 10px;
 }
 
 .center-helper{
@@ -124,7 +132,6 @@ section#overlay{
 }
 
 .tip-wrapper{
-	/*width:265px;*/
 	margin-right: auto;
 	margin-left:auto;
 	display:inline-block;
@@ -166,7 +173,7 @@ section#overlay{
 	border: 10px solid #7D7D7D;
     box-shadow: 0 0 16px #000;
 }
-.overlay-shade {
+.overlay-shade{
 	display:none;
     position: fixed;
     left: 0;
@@ -247,6 +254,10 @@ table{
 p{
 	padding-left: 5px;
 }
+.extend-overlay{
+	height: 250px;
+}
+
 /*Tab/Check Total*/
 
 .dollar-sign{

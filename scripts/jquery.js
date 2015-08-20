@@ -81,9 +81,10 @@ $(document).ready(function(){
 });
 
 function calculateBill(){
-    var party = parseInt($("[name=party]").val(),10);
     var subTotal = parseInt(removeCommaSeperator($("[name=subTotal]").val()),10);
-    var postTax = parseInt(removeCommaSeperator($("[name=postTax]").val()),10);
+    var total = parseInt(removeCommaSeperator($("[name=postTax]").val()),10);
+    
+    var party = parseInt($("[name=party]").val(),10);
     var tip = getTip();
     
     var totalTip = (subTotal * tip) * 100;
@@ -91,22 +92,25 @@ function calculateBill(){
 
     resetTipHelpOverlay();
 
-    if(isTotalGreater(subTotal,postTax)){
+    if(isTotalGreater(subTotal,total)){
         showTipHelpTotalGreater();
-        var totalTax = postTax - subTotal;
-        var gTotal = subTotal + totalTax + totalTip;
-
+        
         var indTotal = subTotal/party;
-        var indTax = (postTax - subTotal)/party;
+        var indTax = (total - subTotal)/party;
         var indGTotal = indTotal + indTax + indTip; 
+
+        var totalTax = total - subTotal;
+        var gTotal = subTotal + totalTax + totalTip;
     }else{
         showTipHelpTotalLessThan();
-        var totalTax = 0;
-        var gTotal = postTax + totalTax + totalTip;
-
-        var indTotal = postTax/party;
+        
+        var indTotal = total/party;
         var indTax = 0;
         var indGTotal = indTotal + indTax + indTip; 
+
+        subTotal = total; //swapping due to total < subTotal
+        var totalTax = 0;
+        var gTotal = total + totalTax + totalTip;
     }
    
     //Setting Result Overlay values

@@ -4,6 +4,7 @@ $(document).ready(function(){
     	var $partyInt = parseInt($("[name=party]").val(),10)+1;
     	$("[name=party]").val($partyInt);
         ifDisableSubButton(($partyInt));
+        $("[name=add]").blur();
     });
 
     //Party Subtract Button
@@ -29,7 +30,7 @@ $(document).ready(function(){
 
      //Close button action in overlays
      $(".close_btn").click(function(e){
-        e.preventDefault(); //prevents page jump
+       // e.preventDefault(); //prevents page jump
         closeOverlay(this);
      });
      // "use tip" button in overlay
@@ -54,7 +55,10 @@ $(document).ready(function(){
 
      //Textbox highlight when focus
      $(".textbox").focus(function(){
-        $(this).parent('div').addClass('tb-select');
+        var name = $(this).attr('name');
+        if (name != "party"){
+            $(this).parent('div').addClass('tb-select');
+        }
      });
 
      //Textbox remove highligh on blur
@@ -64,7 +68,7 @@ $(document).ready(function(){
 
     //Info Button Overlay
     $(".tipInfo_btn").click(function(e){
-         e.preventDefault(); //prevents page jump
+        //e.preventDefault(); //prevents page jump
         $("#how-tip-calc").fadeIn();
     });
 

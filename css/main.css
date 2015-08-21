@@ -2,6 +2,7 @@
 
 body{
 	overflow-x: hidden;
+	width: 100%;
 }
 h1, label, button, input, table, p, .dollar-sign, .percent-sign{
 	font-family: 'San Francisco Text', sans-serif;
@@ -263,8 +264,11 @@ p{
 .dollar-sign{
 	float:left;
 	font-size: 20px;	
+	height: 100%;
 }
 .dollar-tb{
 	float:left;
 	border:none;
+	margin:0;
+	padding:0 0 0 3px;
 }

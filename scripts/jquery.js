@@ -30,7 +30,7 @@ $(document).ready(function(){
 
      //Close button action in overlays
      $(".close_btn").click(function(e){
-       // e.preventDefault(); //prevents page jump
+       e.preventDefault(); //prevents page jump
         closeOverlay(this);
      });
      // "use tip" button in overlay
@@ -68,7 +68,7 @@ $(document).ready(function(){
 
     //Info Button Overlay
     $(".tipInfo_btn").click(function(e){
-        //e.preventDefault(); //prevents page jump
+        e.preventDefault(); //prevents page jump
         $("#how-tip-calc").fadeIn();
     });
 

@@ -1,5 +1,7 @@
-# Tipper
-A helpful web app that will split the tab and calculate the tip.  No need to download an app.  
+Tipper | The Tip Calculator
 
-#View at
-www.neil-r.com/Tipper
+A simple Web App designed for those who love to dine with friends but hate the after meal math exam.
+
+
+#Try it out at
+www.neil-r.com/tipper
